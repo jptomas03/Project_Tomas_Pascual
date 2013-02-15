@@ -10,7 +10,7 @@ project::project()
 {
 }
 
-void project::multiples_3_and_5()
+void project::multiples_3_and_5() // solution 1
 {
 int sum = 0;
 
@@ -25,7 +25,7 @@ int sum = 0;
     cout << sum << endl;
 }
 
-void project::even_fibonacce()
+void project::even_fibonacce() // solution 2
 {
     int sum = 0, present = 1, previous = 1, temp;
         while(present < 4000000)
@@ -43,7 +43,7 @@ void project::even_fibonacce()
         cout << "The sum of all even numbers is " << sum << endl;
 }
 
-void project::largest_prime_factor()
+void project::largest_prime_factor() // solution 3
 {
 
     long long largest_prime = 0LL;
@@ -74,12 +74,12 @@ void project::largest_prime_factor()
 
 }
 
-void project::largest_palindrome_product()
+void project::largest_palindrome_product() //solution 4
 {
     int numbers[2];
-    int largest[2];
+    int highest = 0;
 
-    for(int i = 100; i < 1000; i++)
+    for(int i = 100 ; i < 1000; i++)
     {
         numbers[0] = i;
         for(int k = 100; k < 1000; k++)
@@ -97,23 +97,18 @@ void project::largest_palindrome_product()
                 final_palindrome = palindrome.at(x) + final_palindrome;
                 if(palindrome == final_palindrome)
                 {
-                    for(int j = 0; j < 2; j++)
+                    if(product > highest)
                     {
-                        largest[j] = numbers[j];
+                        highest = product;
                     }
                 }
             }
         }
     }
-
-    for(int i = 0; i < 2; i++)
-    {
-        cout << largest[i] << endl;
-    }
-
+    cout << highest << endl;
 }
 
-void project::smallest_multiple()
+void project::smallest_multiple() //solution 5
 {
     int i = 1;
     bool c = false;
@@ -142,7 +137,7 @@ void project::smallest_multiple()
     cout << i << endl;
 }
 
-void project::sum_square_diff()
+void project::sum_square_diff() //solution 6
 {
     int sum = 0;
     int sqr = 0;
@@ -159,7 +154,7 @@ void project::sum_square_diff()
 
 }
 
-void project::the_10001st_prime()
+void project::the_10001st_prime() //solution 7
 {
     int x = 2;
     for(int i = 0; i < 10001; i++)
@@ -183,7 +178,7 @@ void project::the_10001st_prime()
     cout << x << endl;
 }
 
-void project::largest_product_in_series()
+void project::largest_product_in_series() // solution 8
 {
 
     ifstream ReadFile;
@@ -234,7 +229,7 @@ void project::largest_product_in_series()
 
 }
 
-void project::special_pytho_triplet()
+void project::special_pytho_triplet() //solution 9
 {
     bool test = false;
     int a, b, c;
@@ -259,7 +254,7 @@ void project::special_pytho_triplet()
     cout << a*b*c << endl;
 }
 
-void project::summation_of_primes()
+void project::summation_of_primes()//solution 10
 {
     long long sum = 0LL;
     int range = 2000000;
