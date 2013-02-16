@@ -22,7 +22,7 @@ int sum = 0;
         }
     }
 
-    cout << sum << endl;
+    cout << " The sum of all divisible of 3 and 5: "<< sum << endl;
 }
 
 void project::even_fibonacce() // solution 2
@@ -40,7 +40,7 @@ void project::even_fibonacce() // solution 2
             previous = temp;
         }
 
-        cout << "The sum of all even numbers is " << sum << endl;
+        cout << "The sum of all even numbers in fibonacci sequence: " << sum << endl;
 }
 
 void project::largest_prime_factor() // solution 3
@@ -70,7 +70,7 @@ void project::largest_prime_factor() // solution 3
         }
     }
 
-    cout << largest_prime << endl;
+    cout << "The Largest Prime factor of " << num << ": " <<largest_prime << endl;
 
 }
 
@@ -105,7 +105,7 @@ void project::largest_palindrome_product() //solution 4
             }
         }
     }
-    cout << highest << endl;
+    cout <<"The Largest Palindrome of 3-digit product: " highest << endl;
 }
 
 void project::smallest_multiple() //solution 5
@@ -134,7 +134,7 @@ void project::smallest_multiple() //solution 5
         i++;
     }
     i--;
-    cout << i << endl;
+    cout << "The smalles multiple number: " << i << endl;
 }
 
 void project::sum_square_diff() //solution 6
@@ -150,7 +150,7 @@ void project::sum_square_diff() //solution 6
     }
 
     sum *= sum;
-    cout << sum - sqr << endl;
+    cout << "The Difference of Sum and sqr of 1st 100 natural numbers: "<<sum - sqr << endl;
 
 }
 
@@ -175,7 +175,7 @@ void project::the_10001st_prime() //solution 7
         }
     }
     x--;
-    cout << x << endl;
+    cout << "The 10,001st Prime factor: "<< x << endl;
 }
 
 void project::largest_product_in_series() // solution 8
@@ -225,7 +225,7 @@ void project::largest_product_in_series() // solution 8
             }
 
         }
-      cout << product << endl;
+      cout << "The highest product of 5 consecutive digits: "<<product << endl;
 
 }
 
@@ -251,7 +251,7 @@ void project::special_pytho_triplet() //solution 9
         }
     }
 
-    cout << a*b*c << endl;
+    cout << "The product of abc: "<<a*b*c << endl;
 }
 
 void project::summation_of_primes()//solution 10
@@ -277,5 +277,5 @@ void project::summation_of_primes()//solution 10
             }
         }
     }
-    cout << sum << endl;
+    cout << "The sum of Prime numbers: "<<sum << endl;
 }
