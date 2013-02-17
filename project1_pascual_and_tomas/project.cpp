@@ -48,9 +48,10 @@ void project::largest_prime_factor() // solution 3
 
     long long largest_prime = 0LL;
     long long num = 600851475143LL;
+    long long num1 = num;
     int i, k;
 
-    for(i = 2; i < num; i++)
+    for(i = 2; i <= num; i++)
     {
 
         if(num%i == 0)
@@ -65,12 +66,16 @@ void project::largest_prime_factor() // solution 3
                 else if(k == i - 1)
                 {
                     largest_prime = i;
+                    num /=i;
+                    cout << "The prime factor of " << num1 << ": "<< i << endl;
+                    i--;
+
                 }
             }
         }
     }
 
-    cout << "The Largest Prime factor of " << num << ": " <<largest_prime << endl;
+    cout << "The Largest Prime factor of " << num1 << ": " << largest_prime << endl;
 
 }
 
@@ -105,7 +110,7 @@ void project::largest_palindrome_product() //solution 4
             }
         }
     }
-    cout <<"The Largest Palindrome of 3-digit product: " highest << endl;
+    cout <<"The Largest Palindrome of 3-digit product: " << highest << endl;
 }
 
 void project::smallest_multiple() //solution 5
@@ -258,8 +263,6 @@ void project::summation_of_primes()//solution 10
 {
     long long sum = 0LL;
     int range = 2000000;
-    int x = 2;
-    int y = 2;
 
     for(int i = 2; i < range; i++)
     {
