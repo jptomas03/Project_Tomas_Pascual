@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 project::project()
@@ -259,26 +260,42 @@ void project::special_pytho_triplet() //solution 9
     cout << "The product of abc: "<<a*b*c << endl;
 }
 
-void project::summation_of_primes()//solution 10
+bool project::prime(int x)
 {
-    long long sum = 0LL;
-    int range = 2000000;
-
-    for(int i = 2; i < range; i++)
+    if(x == 2)
     {
-        for(int k = 2; k <= i; k++)
+        return true;
+    }
+
+    if(x%2 == 0 || x == 1)
+    {
+        return false;
+    }
+
+    int y = sqrt(x) + 1;
+    for(int i = 3; i < y; i++)
+    {
+        if(x%i == 0)
         {
-            if(k == i)
-            {
+          return false;
 
-                sum += i;
-            }
-
-            else if(i%k == 0)
-            {
-                break;
-            }
         }
     }
-    cout << "The sum of Prime numbers: "<<sum << endl;
+
+    return true;
+}
+void project::summation_of_primes()//solution 10
+{
+
+    long long sum = 2;
+    int x = 3;
+    int range = 2000000;
+
+    while(x <= range)
+    {
+        if(primeno(x)){sum+=x;}
+
+        x+=2;
+    }
+    cout << "The Sum of all primes below " << range << ": " << sum << endl;
 }
