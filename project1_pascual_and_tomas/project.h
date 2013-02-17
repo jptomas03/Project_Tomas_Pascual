@@ -16,6 +16,7 @@ class project
     void the_10001st_prime();//done7
     void largest_product_in_series();//done8
     void special_pytho_triplet();//done9
+    bool primeno(int num);
     void summation_of_primes();//done10
 };
 
