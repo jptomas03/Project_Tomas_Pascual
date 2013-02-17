@@ -260,7 +260,7 @@ void project::special_pytho_triplet() //solution 9
     cout << "The product of abc: "<<a*b*c << endl;
 }
 
-bool project::prime(int x)
+bool project::primeno(int x)
 {
     if(x == 2)
     {
