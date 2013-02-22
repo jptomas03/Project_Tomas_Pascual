@@ -5,8 +5,10 @@
 #include <cstdlib>
 #include <fstream>
 #include <cmath>
+#include <inttypes.h>
 
 using namespace std;
+//solution 1-10
 project::project()
 {
 }
@@ -298,4 +300,118 @@ void project::summation_of_primes()//solution 10
         x+=2;
     }
     cout << "The Sum of all primes below " << range << ": " << sum << endl;
+}
+//Solution 11-20
+project2::project2()
+{
+
+}
+
+void project2::largest_product_grid() //solution 11
+{
+
+}
+
+void project2::divisible_triangular_number() //solution 12
+{
+
+}
+
+void project2::largest_sum() //solution 13
+{
+
+}
+
+void project2::longest_collatz_sequence() //solution 14
+{
+    int highest_chain = 0;
+    int number = 0;
+    int chain, temp, i;
+    for(i = 1; i < 1000000; i++)
+    {
+        chain = 0;
+        temp = i;
+        while (temp > 1)
+        {
+            if(temp%2 == 0)
+            {
+                temp /= 2;
+                chain++;
+                if(temp == 1) chain++;
+            }
+
+            else
+            {
+                temp *= 3;
+                temp += 1;
+                chain++;
+            }
+        }
+
+        if(chain > highest_chain)
+         {
+            number = i;
+            highest_chain = chain;
+         }
+    }
+   cout << "The Highest number of chain below 1000000 is : " << number << "\n1That has a chain of " << chain << endl;
+}
+
+void project2::diophantine_reciprocals_a() //solution 15
+{
+
+}
+
+void project2::power_digit_sum() //solution 16
+{
+
+}
+
+void project2::number_letter_counts() //solution 17
+{
+
+}
+
+void project2::max_path_sum_one() //solution 18
+{
+
+}
+
+void project2::counting_sundays() //solution 19
+{
+    string day[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    string month[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    int day1 = 1;
+    int count_sunday = 0;
+    for(int year = 1901; year <= 2000; year++)
+    {
+        for(int month1 = 0; month1 < 12; month1++)
+        {
+            if(month[month1] == "January"  || month[month1] == "March"||
+                month[month1] == "May" || month[month1] == "July" ||
+                month[month1] == "August" || month[month1] == "October" || month[month1] == "December")
+                day1 += 3;
+
+            else if(month[month1] == "February")
+            {
+                if(year%4 == 0)
+                {
+                    day1++;
+                }
+            }
+
+            else if(month[month1] == "April" || month[month1] == "June" || month[month1] == "September"
+                     || month[month1] == "November") day1 += 2;
+
+            if(day1 > 7) day1 = day1%7;
+            if(day[day1] == "Sunday") count_sunday++;
+        }
+    }
+    cout << "The number of Sundays Fells on first of the month from year 1901 to 2000: " << count_sunday << endl;
+}
+
+void project2::factorial_digit_sum() //solution 20
+{
+
 }
