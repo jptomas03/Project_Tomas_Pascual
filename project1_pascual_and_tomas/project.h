@@ -20,4 +20,21 @@ class project
     void summation_of_primes();//done10
 };
 
+
+class project2
+{
+  public:
+   project2();
+
+   void largest_product_grid(); //solution 11
+   void divisible_triangular_number(); //solution 12
+   void largest_sum(); // solution 13
+   void longest_collatz_sequence(); //solution 14
+   void diophantine_reciprocals_a(); //solution 15
+   void power_digit_sum(); //solution 16
+   void number_letter_counts(); //solution 17
+   void max_path_sum_one(); //solution 18
+   void counting_sundays(); // solution 19 - done
+   void factorial_digit_sum(); // solution 20
+};
 #endif // project_H
