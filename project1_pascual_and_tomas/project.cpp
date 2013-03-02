@@ -633,3 +633,79 @@ void project2::factorial_digit_sum() //solution 20
 {
 
 }
+
+void project2::name_score() // solution 21
+{
+    ifstream ReadFile;
+    string line, temp = "";
+    string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int range_c = alphabet.length();
+    int rank = 0, letter = 0, product = 0, range = 0, range_n = 0, i_n = 0;
+    long int sum = 0;
+    ReadFile.open("names.txt");
+    getline(ReadFile,line);
+    ReadFile.close();
+    range = line.length();
+
+    for(int i = 0; i < range; i++)
+    {
+        if(line.at(i) == '"')
+        {
+            range_n++;
+        }
+    }
+    range_n /=2;
+
+    string names[range_n];
+    for(int i = 1; i < range; i++)
+    {
+        if(line.at(i) == '"' || line.at(i) == ',')
+        {
+            if(temp != "")
+            {
+                names[i_n] = temp;
+                temp = "";
+                i_n++;
+            }
+            continue;
+        }
+        temp += line.at(i);
+    }
+
+    for(int i = 0; i < range_n; i++)
+    {
+        for(int k = 0; k < range_n;k++)
+        {
+            if(names[i] > names[k])
+            {
+                string temp_r = names[k];
+                names[k] = names[i];
+                names[i] = temp_r;
+            }
+        }
+    }
+
+    for(int i = 0; i < range_n; i++)
+    {
+        letter = 0;
+        rank = range_n - i;
+        int range_a = names[i].length();
+        for(int k = 0; k < range_a; k++)
+        {
+            for(int j = 0; j < range_c; j++)
+            {
+                if(names[i].at(k) == alphabet.at(j))
+                {
+                    letter += j + 1;
+                    break;
+                }
+            }
+        }
+
+        product = rank*letter;
+        sum += product;
+    }
+
+    cout << "The sum of the product of Rank and letter of names is: " <<  sum << endl;
+
+}
