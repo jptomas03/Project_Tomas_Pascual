@@ -26,15 +26,17 @@ class project2
   public:
    project2();
 
-   void largest_product_grid(); //solution 11
-   void divisible_triangular_number(); //solution 12
-   void largest_sum(); // solution 13
-   void longest_collatz_sequence(); //solution 14
-   void diophantine_reciprocals_a(); //solution 15
-   void power_digit_sum(); //solution 16
-   void number_letter_counts(); //solution 17
-   void max_path_sum_one(); //solution 18
-   void counting_sundays(); // solution 19 - done
-   void factorial_digit_sum(); // solution 20
+   void largest_product_grid(); //done
+   int getdivisors(int num1); //for solution 12
+   void divisible_triangular_number(); //done
+   void largest_sum(); //done
+   void longest_collatz_sequence(); //done
+   void diophantine_reciprocals_a();
+   void power_digit_sum();
+   void number_letter_counts();
+   void max_path_sum_one();
+   void counting_sundays(); //done
+   void factorial_digit_sum();
+   void name_score(); //done
 };
 #endif // project_H
