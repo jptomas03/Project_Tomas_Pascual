@@ -32,7 +32,9 @@ class project2
    void largest_sum(); //done
    void longest_collatz_sequence(); //done
    void diophantine_reciprocals_a();
-   void power_digit_sum();
+   int convertCharToNum(char num1); //for solution 16
+   char convertNumToChar(int num1); //for solution 16
+   void power_digit_sum();//done
    void number_letter_counts();
    void max_path_sum_one();
    void counting_sundays(); //done
