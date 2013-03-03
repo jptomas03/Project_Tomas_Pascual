@@ -580,8 +580,91 @@ void project2::diophantine_reciprocals_a() //solution 15
 
 }
 
+int project2::convertCharToNum(char num1) //for problem 16
+{
+    int num;
+    if(num1 == '1') num = 1;
+    else if(num1 == '2') num = 2;
+    else if(num1 == '3') num = 3;
+    else if(num1 == '4') num = 4;
+    else if(num1 == '5') num = 5;
+    else if(num1 == '6') num = 6;
+    else if(num1 == '7') num = 7;
+    else if(num1 == '8') num = 8;
+    else if(num1 == '9') num = 9;
+    else if(num1 == '0') num = 0;
+    return num;
+}
+
+char project2::convertNumToChar(int num1) //for problem 16
+{
+    char num;
+    if(num1 == 1) num = '1';
+    else if(num1 == 2) num = '2';
+    else if(num1 == 3) num = '3';
+    else if(num1 == 4) num = '4';
+    else if(num1 == 5) num = '5';
+    else if(num1 == 6) num = '6';
+    else if(num1 == 7) num = '7';
+    else if(num1 == 8) num = '8';
+    else if(num1 == 9) num = '9';
+    else if(num1 == 0) num = '0';
+
+    return num;
+}
 void project2::power_digit_sum() //solution 16
 {
+    int carry;
+    int range_p = 0;
+    int num = 0;
+    int sum = 0;
+    string product = "2";
+    string temp = "";
+    char temp2;
+
+    for(int i = 2; i <= 1000; i++)
+    {
+        carry = 0;
+        temp = "";
+
+        range_p = product.length();
+        for(int k = range_p - 1; k >= 0; k--)
+        {
+            num = convertCharToNum(product.at(k));
+            num *= 2;
+            num = num + carry;
+            carry = 0;
+
+            if(num > 9)
+            {
+                int a = num%10;
+                carry = (num - a) / 10;
+                temp2 = convertNumToChar(a);
+                temp = temp2 + temp;
+            }
+
+            else
+            {
+                temp2 = convertNumToChar(num);
+                temp = temp2 + temp;
+            }
+
+            if(carry > 0 && k == 0)
+            {
+                temp2 = convertNumToChar(carry);
+                temp = temp2 + temp;
+            }
+        }
+        product = temp;
+    }
+
+    range_p = product.length();
+    for(int i = 0; i < range_p; i++)
+    {
+        int a = convertCharToNum(product.at(i));
+        sum += a;
+    }
+    cout << sum << endl;
 
 }
 
