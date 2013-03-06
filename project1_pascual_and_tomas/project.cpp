@@ -670,12 +670,86 @@ void project2::power_digit_sum() //solution 16
 
 void project2::number_letter_counts() //solution 17
 {
+    string dictionary1[10] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    string dictionary2[18] = { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+    string dictionary3[10] = { "onehundred", "twohundred", "threehundred", "fourhundred", "fivehundred", "sixhundred", "sevenhundred", "eighthundred", "ninehundred", "onethousand" };
 
+    int sum_of_all_letters=0;
+    int i=0,start,j,k;
+    while(i<10){
+        sum_of_all_letters+=dictionary1[i].length();
+        i++;
+        }
+        sum_of_all_letters-=4;
+    i=0;
+    while(i<10){
+        sum_of_all_letters+=dictionary2[i].length();
+        i++;
+    }
+    start=10;
+    while(start<18){
+        sum_of_all_letters+=dictionary2[start].length();
+        for(i=1; i<10; i++)
+        sum_of_all_letters+=dictionary2[start].length()+dictionary1[i].length();
+        start++;
+    }
+    j=0;
+    start=10;
+    while(j<9){
+        sum_of_all_letters+=dictionary3[j].length();
+        for(i=1; i<10; i++)
+            sum_of_all_letters+=dictionary3[j].length()+dictionary1[i].length()+3;
+        for(k=0; k<10; k++)
+            sum_of_all_letters+=dictionary3[j].length()+dictionary2[k].length()+3;
+        for(int p=10; p<18; p++)
+            sum_of_all_letters+=dictionary3[j].length()+dictionary2[p].length()+3;
+        while(start<18){
+            for(int a=1; a<10; a++)
+                sum_of_all_letters+=dictionary3[j].length()+dictionary2[start].length()+dictionary1[a].length()+3;
+            start++;
+        }
+        start=10;
+        j++;
+    }
+    sum_of_all_letters+=dictionary3[9].length();
+    cout<<sum_of_all_letters<<endl;
+}
+
+int project2::maxsum (int num1, int num2, int up) { //for problem 18
+    int biggest = num1;
+    if(num2 > biggest)
+        biggest = num2;
+    return biggest + up;
+}
+
+
+int project2::path(int num, int tri[][15]) { // for problem 18
+    for(int i = num-1; i >= 0; i--) {
+        for(int j = 0; j+1 < num && tri[i][j+1] != 0; j++)
+            tri[i-1][j] = maxsum(tri[i][j], tri[i][j+1], tri[i-1][j]);
+    }
+    return tri[0][0];
 }
 
 void project2::max_path_sum_one() //solution 18
 {
-
+int tri [15][15] = {
+    {75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {95, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {17, 47, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {18, 35, 87, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {20, 4, 82, 47, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {19, 1, 23, 75, 3, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {88, 2, 77, 73, 7, 63, 67, 0, 0, 0, 0, 0, 0, 0, 0},
+    {99, 65, 4, 28, 6, 16, 70, 92, 0, 0, 0, 0, 0, 0, 0},
+    {41, 41, 26, 56, 83, 40, 80, 70, 33, 0, 0, 0, 0, 0, 0},
+    {41, 48, 72, 33, 47, 32, 37, 16, 94, 29, 0, 0, 0, 0, 0},
+    {53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14, 0, 0, 0, 0},
+    {70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57, 0, 0, 0},
+    {91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48, 0, 0},
+    {63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31, 0},
+    {4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23}};
+    cout << path(15, tri) << endl;
 }
 
 void project2::counting_sundays() //solution 19
