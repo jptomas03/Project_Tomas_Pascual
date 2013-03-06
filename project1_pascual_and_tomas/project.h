@@ -36,7 +36,9 @@ class project2
    char convertNumToChar(int num1); //for solution 16
    void power_digit_sum();//done
    void number_letter_counts();
-   void max_path_sum_one();
+   int maxsum (int num1, int num2, int up); // for solution 18
+   int path(int num, int tri[][15]); // for solution 18
+   void max_path_sum_one();// done
    void counting_sundays(); //done
    void factorial_digit_sum();
    void name_score(); //done
