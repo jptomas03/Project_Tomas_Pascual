@@ -32,10 +32,10 @@ class project2
    void largest_sum(); //done
    void longest_collatz_sequence(); //done
    void diophantine_reciprocals_a();
-   int convertCharToNum(char num1); //for solution 16
-   char convertNumToChar(int num1); //for solution 16
+   int convertCharToNum(char num1); //for solution 16 and 20
+   char convertNumToChar(int num1); //for solution 16 and 20
    void power_digit_sum();//done
-   void number_letter_counts();
+   void number_letter_counts();//done
    int maxsum (int num1, int num2, int up); // for solution 18
    int path(int num, int tri[][15]); // for solution 18
    void max_path_sum_one();// done
