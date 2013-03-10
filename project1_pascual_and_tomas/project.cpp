@@ -788,7 +788,158 @@ void project2::counting_sundays() //solution 19
 
 void project2::factorial_digit_sum() //solution 20
 {
+ int carry;
+    int range_p = 0;
+    int num = 0;
+    int sum = 0;
+    string product = "1";
+    string temp = "";
+    char temp2;
 
+    for(int i = 2; i <= 9; i++)
+    {
+        carry = 0;
+        temp = "";
+
+        range_p = product.length();
+        for(int k = range_p - 1; k >= 0; k--)
+        {
+            num = convertCharToNum(product.at(k));
+            num *= i;
+            num = num + carry;
+            carry = 0;
+
+            if(num > 9)
+            {
+                int a = num%10;
+                carry = (num - a) / 10;
+                temp2 = convertNumToChar(a);
+                temp = temp2 + temp;
+            }
+
+            else
+            {
+                temp2 = convertNumToChar(num);
+                temp = temp2 + temp;
+            }
+
+            if(carry > 0 && k == 0)
+            {
+                temp2 = convertNumToChar(carry);
+                temp = temp2 + temp;
+            }
+        }
+        product = temp;
+    }
+
+    for(int i = 10; i <= 99; i++)
+    {
+        ostringstream convert;
+        string another;
+        convert << i;
+        another = convert.str();
+        int range_a = another.length();
+        string Array[range_a];
+        int product_temp = 0;
+        carry = 0;
+        int i_a = 0;
+        for(int j = range_a - 1; j >= 0; j--)
+        {
+
+            temp = "";
+
+            int numa = convertCharToNum(another.at(j));
+            carry = 0;
+            range_p = product.length();
+            for(int k = range_p - 1; k >= 0; k--)
+            {
+                int numb = convertCharToNum(product.at(k));
+                int product_temp = (numa * numb) + carry;
+                carry = 0;
+
+                if(product_temp > 9)
+                {
+                    int a = product_temp%10;
+                    carry = (product_temp - a) / 10;
+                    temp2 = convertNumToChar(a);
+                    temp = temp2 + temp;
+                }
+
+                else
+                {
+                    temp2 = convertNumToChar(product_temp);
+                    temp = temp2 + temp;
+                }
+
+                if(carry > 0 && k == 0)
+                {
+                    temp2 = convertNumToChar(carry);
+                    temp = temp2 + temp;
+                }
+            }
+            Array[i_a] = temp;
+            i_a++;
+        }
+        int range_1 = Array[0].length();
+        int range_2 = Array[1].length();
+
+        if(range_1 == range_2)
+        {
+            Array[0] = "0" + Array[0];
+            Array[1] = Array[1] + "0";
+        }
+
+        else
+        {
+            Array[1] = Array[1] + "0";
+        }
+
+        range_1 = Array[0].length();
+        range_2 = Array[1].length();
+        carry = 0;
+        temp = "";
+        for(int z = range_1 - 1; z >= 0; z--)
+        {
+
+            int numa = convertCharToNum(Array[0].at(z));
+            int numb = convertCharToNum(Array[1].at(z));
+            int sum = numa + numb + carry;
+            carry = 0;
+
+            if(sum > 9)
+            {
+                int a = sum%10;
+                carry = (sum - a) / 10;
+                temp2 = convertNumToChar(a);
+                temp = temp2 + temp;
+            }
+
+            else
+            {
+                temp2 = convertNumToChar(sum);
+                temp = temp2 + temp;
+            }
+
+            if(carry == 1 && z == 0)
+            {
+                temp2 = convertNumToChar(carry);
+                temp = temp2 + temp;
+            }
+        }
+        product = temp;
+    }
+
+    product = product + "00";
+    int b = product.length();
+
+    sum = 0;
+    for(int i = 0; i < b; i++)
+    {
+        int num = convertCharToNum(product.at(i));
+        sum += num;
+    }
+
+    cout << sum << endl;
 }
 
 void project2::name_score() // solution 21
