@@ -580,7 +580,7 @@ void project2::diophantine_reciprocals_a() //solution 15
 
 }
 
-int project2::convertCharToNum(char num1) //for problem 16
+int project2::convertCharToNum(char num1) //for problem 16, 20 and 22
 {
     int num;
     if(num1 == '1') num = 1;
@@ -596,7 +596,7 @@ int project2::convertCharToNum(char num1) //for problem 16
     return num;
 }
 
-char project2::convertNumToChar(int num1) //for problem 16
+char project2::convertNumToChar(int num1) //for problem 16, 20 and 22
 {
     char num;
     if(num1 == 1) num = '1';
@@ -1015,5 +1015,69 @@ void project2::name_score() // solution 21
     }
 
     cout << "The sum of the product of Rank and letter of names is: " <<  sum << endl;
+}
+
+void project2::first_1000_digit_fibonacci()
+{
+     string present = "1";
+    string previous = "0";
+    string temp = present;
+    string temp_sum = "";
+
+    int carry = 0;
+    int term = 1;
+    int range_pt = present.length();
+    int range_pv = previous.length();
+    while (range_pt < 1000)
+    {
+        if(range_pt > range_pv)
+        {
+            for(int i = 0; i < range_pt - range_pv; i++)
+            {
+                previous = "0" + previous;
+            }
+            range_pv = previous.length();
+        }
+
+        for(int i = range_pt - 1; i >= 0; i--)
+        {
+            int num_a = convertCharToNum(present.at(i));
+            int num_b = convertCharToNum(previous.at(i));
+            int sum = num_a + num_b + carry;
+            carry = 0;
+
+            if(sum > 9)
+            {
+                int a = sum%10;
+                sum -= a;
+                carry = sum/10;
+                temp_sum = convertNumToChar(a) + temp_sum;
+            }
+
+            else
+            {
+                temp_sum = convertNumToChar(sum) + temp_sum;
+            }
+
+            if(carry != 0 && i == 0)
+            {
+                temp_sum = convertNumToChar(carry) + temp_sum;
+                carry = 0;
+            }
+        }
+
+        temp = present;
+        present = temp_sum;
+        previous = temp;
+        term++;
+        temp_sum = "";
+        range_pt = present.length();
+        range_pv = previous.length();
+    }
+    cout <<  term << endl;
+}
+
+void project2::truncable_primes()
+{
 
 }
