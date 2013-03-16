@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 const string PROBLEMS[]={
     "Multiples of 3 and 5",
     "Even Fibonacci",
@@ -29,10 +27,12 @@ const string PROBLEMS[]={
     "Counting sundays",
     "Factorial Digit sum",
     "Name Score",
+    "1000-digit Fibonacci Number",
+    "Truncatable primes",
     "Exit"
 };
 
-const int NUM_PROBLEMS = 21;
+const int NUM_PROBLEMS = 23;
 
 const int EXIT = NUM_PROBLEMS + 1;
 int main (){
@@ -171,6 +171,16 @@ int main (){
 
             case 21:
                 pro2.name_score();
+                system("pause");
+                break;
+
+            case 22:
+                pro2.first_1000_digit_fibonacci();
+                system("pause");
+                break;
+
+            case 23:
+                pro2.truncable_primes();
                 system("pause");
                 break;
 
