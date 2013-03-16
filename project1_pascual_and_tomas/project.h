@@ -32,8 +32,8 @@ class project2
    void largest_sum(); //done
    void longest_collatz_sequence(); //done
    void diophantine_reciprocals_a();
-   int convertCharToNum(char num1); //for solution 16 and 20
-   char convertNumToChar(int num1); //for solution 16 and 20
+   int convertCharToNum(char num1); //for solution 16, 20 and 22
+   char convertNumToChar(int num1); //for solution 16, 20 and 22
    void power_digit_sum();//done
    void number_letter_counts();//done
    int maxsum (int num1, int num2, int up); // for solution 18
@@ -42,5 +42,7 @@ class project2
    void counting_sundays(); //done
    void factorial_digit_sum();
    void name_score(); //done
+   void first_1000_digit_fibonacci();//done
+   void truncable_primes();
 };
 #endif // project_H
