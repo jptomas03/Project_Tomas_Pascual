@@ -262,7 +262,7 @@ void project::special_pytho_triplet() //solution 9
     cout << "The product of abc: "<<a*b*c << endl;
 }
 
-bool project::primeno(int x)
+bool primeno(int x)
 {
     if(x == 2)
     {
@@ -375,7 +375,7 @@ void project2::largest_product_grid() //solution 11
 
 }
 
-int project2::getdivisors(int num1) //for solution 12
+int getdivisors(int num1) //for solution 12
 {
     int divisor_counted = 0;
     int x = 1;
@@ -574,13 +574,52 @@ void project2::longest_collatz_sequence() //solution 14
     }
    cout << "The Highest number of chain below 1000000 is : " << number << "\n1That has a chain of " << chain << endl;
 }
+const int MAX_SOLUTIONS = 1000;
+typedef unsigned long long Long;
+int getSolution(Long n);
 
-void project2::diophantine_reciprocals_a() //solution 15
+int getSolution(Long  n)
 {
 
+    Long maxX = 2*n;
+    register int solutions=0;
+    Long differ;
+    long double y;
+    Long x;
+
+    for(x = n+1; x<=maxX; x++)
+    {
+        differ = x-n;
+
+            y = (x*n)/(long double)differ;
+            if((Long)y == y)
+            {
+                solutions++;
+            }
+
+    }
+
+
+
+    return solutions;
+}
+void project2::diophantine_reciprocals_a() //solution 15
+{
+    int solutions = 0;
+    Long n=2*3*5*7*11*13;
+    Long x = 2*3*5*7*11*13;
+
+    while(solutions <= MAX_SOLUTIONS)
+    {
+
+        solutions = getSolution(n);
+        n+=x;
+    }
+
+    cout << n-x << endl;
 }
 
-int project2::convertCharToNum(char num1) //for problem 16, 20 and 22
+int convertCharToNum(char num1) //for problem 16, 20 and 22
 {
     int num;
     if(num1 == '1') num = 1;
@@ -596,7 +635,7 @@ int project2::convertCharToNum(char num1) //for problem 16, 20 and 22
     return num;
 }
 
-char project2::convertNumToChar(int num1) //for problem 16, 20 and 22
+char convertNumToChar(int num1) //for problem 16, 20 and 22
 {
     char num;
     if(num1 == 1) num = '1';
@@ -715,7 +754,7 @@ void project2::number_letter_counts() //solution 17
     cout<<sum_of_all_letters<<endl;
 }
 
-int project2::maxsum (int num1, int num2, int up) { //for problem 18
+int maxsum (int num1, int num2, int up) { //for problem 18
     int biggest = num1;
     if(num2 > biggest)
         biggest = num2;
@@ -723,7 +762,7 @@ int project2::maxsum (int num1, int num2, int up) { //for problem 18
 }
 
 
-int project2::path(int num, int tri[][15]) { // for problem 18
+int path(int num, int tri[][15]) { // for problem 18
     for(int i = num-1; i >= 0; i--) {
         for(int j = 0; j+1 < num && tri[i][j+1] != 0; j++)
             tri[i-1][j] = maxsum(tri[i][j], tri[i][j+1], tri[i-1][j]);
@@ -1076,8 +1115,123 @@ void project2::first_1000_digit_fibonacci()
     }
     cout <<  term << endl;
 }
+bool right(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    int temp;
+    int remainder;
+    int divide = 10;
+    int times = 1;
+    bool prime = true;
+    int range = x.length();
 
+
+    for(int k = 0; k < range - 1 ; k++)
+    {
+        if(x.at(0) == '1' || x.at(0) == '4' || x.at(0) == '6' || x.at(0) == '8')
+        {
+            prime = false;
+            break;
+        }
+
+        divide = divide*times;
+        remainder = i%divide;
+        temp = i - remainder;
+        temp = temp/divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                prime = false;
+                k = range;
+                break;
+            }
+        }
+
+        times *= 10;
+    }
+
+    return prime;
+}
+
+bool left(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    bool prime = true;
+    int range = x.length();
+    int divide = 1;
+    int remainder;
+    int temp;
+    for(int k = 0; k < range; k++)
+    {
+        divide *= 10;
+    }
+
+    for(int k = 0; k < range; k++)
+    {
+
+        temp = i%divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                k = range;
+                prime = false;
+                break;
+            }
+        }
+
+        divide /= 10;
+    }
+    return prime;
+}
 void project2::truncable_primes()
 {
+    int number = 23;
+    int term = 0;
+    int sum = 0;
+    bool ok;
+    while(term < 11)
+    {
+        ok = true;
+        for(int a = 2; a < number; a++)
+        {
+            if(number%a == 0)
+            {
+                ok = false;
+                break;
+            }
+        }
 
+        if(ok)
+        {
+            if(right(number) && left(number))
+            {
+                sum += number;
+                term++;
+            }
+        }
+
+        number += 2;
+    }
+
+    cout << "Total: " << sum << endl;
 }
