@@ -16,7 +16,6 @@ class project
     void the_10001st_prime();//done7
     void largest_product_in_series();//done8
     void special_pytho_triplet();//done9
-    bool primeno(int num);
     void summation_of_primes();//done10
 };
 
@@ -27,22 +26,17 @@ class project2
    project2();
 
    void largest_product_grid(); //done
-   int getdivisors(int num1); //for solution 12
    void divisible_triangular_number(); //done
    void largest_sum(); //done
    void longest_collatz_sequence(); //done
    void diophantine_reciprocals_a();
-   int convertCharToNum(char num1); //for solution 16, 20 and 22
-   char convertNumToChar(int num1); //for solution 16, 20 and 22
    void power_digit_sum();//done
    void number_letter_counts();//done
-   int maxsum (int num1, int num2, int up); // for solution 18
-   int path(int num, int tri[][15]); // for solution 18
    void max_path_sum_one();// done
    void counting_sundays(); //done
    void factorial_digit_sum();
    void name_score(); //done
    void first_1000_digit_fibonacci();//done
-   void truncable_primes();
+   void truncable_primes();//done
 };
 #endif // project_H
